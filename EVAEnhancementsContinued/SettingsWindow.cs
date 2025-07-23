@@ -1,4 +1,5 @@
-﻿using System;
+using KSP.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,13 +59,15 @@ namespace EVAEnhancementsContinued
 
             GUI.skin = modStyle.skin;
             GUILayout.BeginVertical();
-            GUILayout.Label("EVA Enhancements - Settings", modStyle.guiStyles["titleLabel"]);
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_EVA_Enhancements_Settings"), 
+                modStyle.guiStyles["titleLabel"]); // NO_LOCALIZATIONs
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical();
             scrollPos = GUILayout.BeginScrollView(scrollPos);
 
-            GUILayout.Label("Default Jetpack Power: " + settings.defaultJetPackPower.ToString("P0"));
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Default_Jetpack_Power") + 
+                settings.defaultJetPackPower.ToString("P0")); // NO_LOCALIZATIONs
             float newJetPackPower = GUILayout.HorizontalSlider(settings.defaultJetPackPower, 0f, 1f);
             if (newJetPackPower != settings.defaultJetPackPower)
             {
@@ -74,7 +77,8 @@ namespace EVAEnhancementsContinued
             }
             GUILayout.Space(10f);
 
-            GUILayout.Label("Default Precision Jetpack Power: " + settings.defaultPrecisionModePower.ToString("P0"));
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Default_Precision_Jetpack") + 
+                settings.defaultPrecisionModePower.ToString("P0")); // NO_LOCALIZATIONs
             float newPrecisionJetPackPower = GUILayout.HorizontalSlider(settings.defaultPrecisionModePower, 0f, 1f);
             if (newPrecisionJetPackPower != settings.defaultPrecisionModePower)
             {
@@ -87,16 +91,16 @@ namespace EVAEnhancementsContinued
             string str;
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Pitch Down", GUILayout.ExpandWidth(true));
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Pitch_Down"), GUILayout.ExpandWidth(true));
             KeyCodeExtended c = null;
             if (Event.current.isKey)
                 c = new KeyCodeExtended(Event.current.keyCode);
             if (settingPitchDown)
             {
-                GUILayout.Label("<Press any key>");
+                GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Press_any_key"));
                 if (Event.current.isKey && c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
-                    Log.Info("keyodeExtended: " + c.ToString() + ", primary: " + GameSettings.MODIFIER_KEY.primary.ToString());
+                    Log.Info("keyodeExtended: " + c.ToString() + ", primary: " + GameSettings.MODIFIER_KEY.primary.ToString()); // NO_LOCALIZATIONs
                     settings.pitchDown = new KeyCodeExtended(Event.current.keyCode);
                     settings.modKeypitchDown = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
@@ -107,7 +111,7 @@ namespace EVAEnhancementsContinued
             {
                 str = settings.pitchDown.ToString();
                 if (settings.modKeypitchDown)
-                    str = "Alt-" + str;
+                    str = Localizer.Format("#LOC_EvaEnhance_Alt") + str;
                 if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingPitchDown = true;
@@ -116,11 +120,11 @@ namespace EVAEnhancementsContinued
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Pitch Up", GUILayout.ExpandWidth(true));
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Pitch_Up"), GUILayout.ExpandWidth(true));
 
             if (settingPitchUp)
             {
-                GUILayout.Label("<Press any key>");
+                GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Press_any_key"));
                 if (Event.current.isKey &&  c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
                     settings.pitchUp = new KeyCodeExtended(Event.current.keyCode);
@@ -133,7 +137,7 @@ namespace EVAEnhancementsContinued
             {
                 str = settings.pitchUp.ToString();
                 if (settings.modKeypitchUp)
-                    str = "Alt-" + str;
+                    str = Localizer.Format("#LOC_EvaEnhance_Alt") + str;
                 if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingPitchUp = true;
@@ -143,11 +147,11 @@ namespace EVAEnhancementsContinued
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Roll Left", GUILayout.ExpandWidth(true));
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Roll_Left"), GUILayout.ExpandWidth(true));
 
             if (settingRollLeft)
             {
-                GUILayout.Label("<Press any key>");
+                GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Press_any_key"));
                 if (Event.current.isKey &&  c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
                     settings.rollLeft = new KeyCodeExtended(Event.current.keyCode);
@@ -160,7 +164,7 @@ namespace EVAEnhancementsContinued
             {
                 str = settings.rollLeft.ToString();
                 if (settings.modKeyrollLeft)
-                    str = "Alt-" + str;
+                    str = Localizer.Format("#LOC_EvaEnhance_Alt") + str;
                 if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingRollLeft = true;
@@ -169,11 +173,11 @@ namespace EVAEnhancementsContinued
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Roll Right", GUILayout.ExpandWidth(true));
+            GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Roll_Right"), GUILayout.ExpandWidth(true));
 
             if (settingRollRight)
             {
-                GUILayout.Label("<Press any key>");
+                GUILayout.Label(Localizer.Format("#LOC_EvaEnhance_Press_any_key"));
                 if (Event.current.isKey &&  c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
                     settings.rollRight = new KeyCodeExtended(Event.current.keyCode);
@@ -186,7 +190,7 @@ namespace EVAEnhancementsContinued
             {
                 str = settings.rollRight.ToString();
                 if (settings.modKeyrollRight)
-                    str = "Alt-" + str;
+                    str = Localizer.Format("#LOC_EvaEnhance_Alt") + str;
                 if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingRollRight = true;
@@ -198,7 +202,7 @@ namespace EVAEnhancementsContinued
 #if false
             
             GUILayout.BeginHorizontal();
-            newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, "Use Stock Toolbar");
+            newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, Localizer.Format("#LOC_EvaEnhance_Use_Stock_Toolbar"));
             GUILayout.EndHorizontal();
 
             if (newUseStockToolbar != settings.useStockToolbar)
@@ -210,7 +214,7 @@ namespace EVAEnhancementsContinued
 
             GUILayout.BeginHorizontal();
             // GUILayout.Label("NavBall follows Kerbal:");
-            settingsEvaNavballFollowsKerbal = GUILayout.Toggle(settings.evaNavballFollowsKerbal, "NavBall follows Kerbal");
+            settingsEvaNavballFollowsKerbal = GUILayout.Toggle(settings.evaNavballFollowsKerbal, Localizer.Format("#LOC_EvaEnhance_NavBall_follows_Kerbal"));
             if (settingsEvaNavballFollowsKerbal != settings.evaNavballFollowsKerbal)
             {
                 settings.evaNavballFollowsKerbal = settingsEvaNavballFollowsKerbal;
@@ -221,7 +225,7 @@ namespace EVAEnhancementsContinued
             
                  GUILayout.BeginHorizontal();
             // GUILayout.Label("NavBall follows Kerbal:");
-            settingsEvaHideNavballMarkers = GUILayout.Toggle(settings.evaHideNavballMarkers, "Hide Navball markers on EVA");
+            settingsEvaHideNavballMarkers = GUILayout.Toggle(settings.evaHideNavballMarkers, Localizer.Format("#LOC_EvaEnhance_Hide_Navball_markers_on_E"));
             if (settingsEvaHideNavballMarkers != settings.evaHideNavballMarkers)
             {
                 settings.evaHideNavballMarkers = settingsEvaHideNavballMarkers;
@@ -233,7 +237,7 @@ namespace EVAEnhancementsContinued
             GUILayout.Space(25f);
             GUILayout.EndVertical();
 
-            if (GUI.Button(new Rect(windowRect.width - 18, 3f, 15f, 15f), new GUIContent("X")))
+            if (GUI.Button(new Rect(windowRect.width - 18, 3f, 15f, 15f), new GUIContent("X"))) // NO_LOCALIZATIONs
             {
                 showWindow = false;
                 toolbarControl.SetFalse(false);

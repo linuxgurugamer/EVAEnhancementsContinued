@@ -14,6 +14,7 @@ using System.Text;
 using KSP;
 using UnityEngine;
 
+#region NO_LOCALIZATION
 namespace KSPPluginFramework
 {
     public abstract class ConfigNodeStorage : IPersistenceLoad, IPersistenceSave
@@ -43,7 +44,7 @@ namespace KSPPluginFramework
             set
             {
                 //Combine the Location of the assembly and the provided string. This means we can use relative or absolute paths
-                _FilePath = System.IO.Path.Combine(_AssemblyFolder, value).Replace("\\", "/");
+                _FilePath = System.IO.Path.Combine(_AssemblyFolder, value).Replace("\\", "/"); // NO_LOCALIZATION
             }
         }
 
@@ -133,7 +134,7 @@ namespace KSPPluginFramework
             {
                 LogFormatted("Failed to Load ConfigNode from file({0})-Error:{1}", fileFullName, ex.Message);
                 LogFormatted("Storing old config - {0}", fileFullName + ".err-" + string.Format("ddMMyyyy-HHmmss", DateTime.Now));
-                System.IO.File.Copy(fileFullName, fileFullName + ".err-" + string.Format("ddMMyyyy-HHmmss", DateTime.Now), true);
+                System.IO.File.Copy(fileFullName, fileFullName + ".err-" + string.Format("ddMMyyyy-HHmmss", DateTime.Now), true); // NO_LOCALIZATION
                 blnReturn = false;
             }
             return blnReturn;
@@ -254,3 +255,4 @@ namespace KSPPluginFramework
 
     }
 }
+#endregion

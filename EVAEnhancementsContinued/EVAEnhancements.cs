@@ -1,4 +1,5 @@
-﻿using System;
+using KSP.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,8 +54,8 @@ namespace EVAEnhancementsContinued
 
             // Display profession and level
             ProtoCrewMember myKerbal = this.part.protoModuleCrew.SingleOrDefault();
-            this.Fields["kerbalProfession"].guiName = myKerbal.experienceTrait.Title;
-            kerbalProfession = "Level " + myKerbal.experienceLevel.ToString();
+            this.Fields["kerbalProfession"].guiName = myKerbal.experienceTrait.Title; // NO_LOCALIZATION
+            kerbalProfession = "Level " + myKerbal.experienceLevel.ToString(); // NO_LOCALIZATION
 
             // Set default jet pack power
             if (!powerInited)
@@ -78,11 +79,11 @@ namespace EVAEnhancementsContinued
                     precisionControls = !precisionControls;
                     if (precisionControls)
                     {
-                        ScreenMessages.PostScreenMessage("Precision Controls: Enabled", 2f, ScreenMessageStyle.UPPER_CENTER);
+                        ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_EvaEnhance_Precision_Controls_Enable"), 2f, ScreenMessageStyle.UPPER_CENTER);
                     }
                     else
                     {
-                        ScreenMessages.PostScreenMessage("Precision Controls: Disabled", 2f, ScreenMessageStyle.UPPER_CENTER);
+                        ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_EvaEnhance_Precision_Controls_Disabl"), 2f, ScreenMessageStyle.UPPER_CENTER);
                     }
                 }
 

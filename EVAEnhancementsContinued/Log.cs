@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 
+#region NO_LOCALIZATION
 namespace EVAEnhancementsContinued
 {
     public static class Log
@@ -113,3 +114,4 @@ namespace EVAEnhancementsContinued
 
     }
 }
+#endregion

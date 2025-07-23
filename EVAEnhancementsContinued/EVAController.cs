@@ -45,8 +45,8 @@ namespace EVAEnhancementsContinued
                 
                 if (rotation != Quaternion.identity)
                 {
-                    var eva_tgtFwd = typeof(KerbalEVA).GetField("tgtFwd", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                    var eva_tgtUp = typeof(KerbalEVA).GetField("tgtUp", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    var eva_tgtFwd = typeof(KerbalEVA).GetField("tgtFwd", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance); // NO_LOCALIZATION
+                    var eva_tgtUp = typeof(KerbalEVA).GetField("tgtUp", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance); // NO_LOCALIZATION
 
                     eva_tgtFwd.SetValue(eva, rotation * (Vector3)eva_tgtFwd.GetValue(eva));
                     eva_tgtUp.SetValue(eva, rotation * (Vector3)eva_tgtUp.GetValue(eva));

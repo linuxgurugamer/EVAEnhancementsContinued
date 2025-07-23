@@ -1,4 +1,5 @@
 ﻿#if false
+#region  NO_LOCALIZATION
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,8 @@ namespace EVAEnhancementsContinued
             if (!initialized)
             {
                 initialized = true;
-                addEVAEnhancementsModule("kerbalEVA");
-                addEVAEnhancementsModule("kerbalEVAfemale");
+                addEVAEnhancementsModule("kerbalEVA"); // NO_LOCALIZATION
+                addEVAEnhancementsModule("kerbalEVAfemale"); // NO_LOCALIZATION
             }
 
         }
@@ -28,8 +29,8 @@ namespace EVAEnhancementsContinued
         {
             try
             {
-                ConfigNode node = new ConfigNode("MODULE");
-                node.AddValue("name", "EVAEnhancements");
+                ConfigNode node = new ConfigNode("MODULE");  // NO_LOCALIZATION
+                node.AddValue("name", "EVAEnhancements"); // NO_LOCALIZATION
 
                 var partInfo = PartLoader.getPartInfoByName(partName);
                 var prefab = partInfo.partPrefab;
@@ -49,4 +50,5 @@ namespace EVAEnhancementsContinued
         }
     }
 }
+#endregion
 #endif

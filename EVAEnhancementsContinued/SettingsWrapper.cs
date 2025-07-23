@@ -9,7 +9,7 @@ namespace EVAEnhancementsContinued
     {
         public static readonly SettingsWrapper instance = new SettingsWrapper();
         public Settings gameSettings { get; private set; }
-        public ModStyle modStyle { get; private set; }
+        public ModStyle modStyle { get;  set; }
 
         static SettingsWrapper() 
         {
@@ -17,8 +17,8 @@ namespace EVAEnhancementsContinued
 
         private SettingsWrapper()
         {
-            gameSettings = new Settings("../PluginData/EVAEnhancements.cfg");
-            modStyle = new ModStyle();
+            gameSettings = new Settings("../PluginData/EVAEnhancements.cfg"); // NO_LOCALIZATION
+            //modStyle = new ModStyle();
         }
 
         public static SettingsWrapper Instance {

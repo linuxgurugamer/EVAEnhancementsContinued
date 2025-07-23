@@ -117,3 +117,8 @@ EVAEnhancementsContinued
 0.1.15.3
 	Added AssemblyFileVersion
 	Updated version file for 1.12
+
+0.1.16
+	Fixed initializion of ModStyle to be called from a Unity Start in the ToolbarRegistration.cs
+	Updated version file to use github for new version info
+	Localized the mod

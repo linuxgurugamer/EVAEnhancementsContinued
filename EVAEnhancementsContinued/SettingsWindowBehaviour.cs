@@ -53,6 +53,7 @@ namespace EVAEnhancementsContinued
             visibleUI = false;
         }
 
+        #region  NO_LOCALIZATIONs
         internal const string MODID = "EvaEnhancements_NS";
         internal const string MODNAME = "EVA Enhancements";
 
@@ -74,6 +75,7 @@ namespace EVAEnhancementsContinued
 
             }
         }
+        #endregion
 
         internal void removeLauncherButtons()
         {

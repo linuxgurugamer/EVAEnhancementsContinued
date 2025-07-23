@@ -46,6 +46,7 @@ namespace EVAEnhancementsContinued
             blackBackground.SetPixel(0, 0, Color.black);
             blackBackground.Apply();
 
+            #region  NO_LOCALIZATION
             guiStyles["titleLabel"] = new GUIStyle();
             guiStyles["titleLabel"].name = "titleLabel";
             guiStyles["titleLabel"].fontSize = fontSize + 3;
@@ -62,7 +63,7 @@ namespace EVAEnhancementsContinued
             guiStyles["tooltip"].alignment = TextAnchor.MiddleCenter;
             guiStyles["tooltip"].normal.textColor = Color.yellow;
             guiStyles["tooltip"].normal.background = blackBackground;
-
+            #endregion
         }
 
         public Texture2D GetImage(String path, int width, int height)

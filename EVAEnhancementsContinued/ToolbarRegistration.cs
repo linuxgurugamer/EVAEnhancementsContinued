@@ -10,6 +10,7 @@ namespace EVAEnhancementsContinued
         void Start()
         {
             ToolbarControl.RegisterMod(SettingsWindowBehaviour.MODID, SettingsWindowBehaviour.MODNAME);
+            SettingsWrapper.instance.modStyle = new ModStyle();
         }
     }
 }
